@@ -1,8 +1,8 @@
-import { ReactNode } from 'react'
-import Link from 'next/link'
-import { ThemeToggle } from './theme-toggle'
-import { Button } from './ui/button'
-import { Activity } from 'lucide-react'
+import type { ReactNode } from "react"
+import Link from "next/link"
+import { ThemeToggle } from "./theme-toggle"
+import { Button } from "./ui/button"
+import { Activity, Info } from "lucide-react"
 
 interface LayoutProps {
   children: ReactNode
@@ -17,6 +17,12 @@ export default function Layout({ children }: LayoutProps) {
             Oxzi
           </Link>
           <div className="flex items-center space-x-4">
+            <Link href="/about">
+              <Button variant="ghost">
+                <Info className="mr-2 h-4 w-4" />
+                About
+              </Button>
+            </Link>
             <Link href="/dashboard">
               <Button variant="ghost">
                 <Activity className="mr-2 h-4 w-4" />
@@ -33,9 +39,7 @@ export default function Layout({ children }: LayoutProps) {
           </div>
         </nav>
       </header>
-      <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">
-        {children}
-      </main>
+      <main className="container mx-auto py-8 px-4 sm:px-6 lg:px-8">{children}</main>
       <footer className="container mx-auto py-4 px-4 sm:px-6 lg:px-8 text-center">
         © 2025 Oxzi. All rights reserved.
       </footer>
